@@ -1,1 +1,10 @@
-PROJECT
+# Project dependencies
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+.cache/
+PROJECT/
+# Build directory
+public/
+static/admin/*.bundle.*
+.DS_Store
+yarn-error.log
