@@ -8,10 +8,6 @@ import Navbar from '../components/Navbar'
 const Container = styled.div`
   ${tw`font-sans mx-auto w-full sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl`};`
 
-const Text = styled.p`
-  ${tw`bg-black text-white`};
-`
-
 const TemplateWrapper = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -44,7 +40,6 @@ const TemplateWrapper = ({ children }) => (
           <meta property="og:image" content="/img/og-image.jpg" />
         </Helmet>
         <Navbar />
-        <Text>HELLO</Text>
         <Container className="container">{children}</Container>
       </div>
     )}

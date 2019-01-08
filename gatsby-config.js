@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
-    description: 'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+    title: 'Concrete Hermit',
+    description: 'From 2004 to 2011 our gallery in east London hosted a series of exhibitions showcasing the work of selected artsits designers and illustrators from all over the world. The shows are listed below as a historical record, the gallery is now closed.',
   },
   plugins: [
     'gatsby-plugin-tailwindcss',
@@ -63,6 +63,19 @@ module.exports = {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Karla`
+          },
+          {
+            family: `Inconsolata`
+          },
+        ],
       },
     },
     'gatsby-plugin-purgecss', // must be after other CSS plugins

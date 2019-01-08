@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from '@emotion/styled'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
@@ -16,15 +17,17 @@ export const BlogPostTemplate = ({
 }) => {
   const PostContent = contentComponent || Content
 
+  const Headline = styled.h1`${tw`font-title font-normal text-3xl my-24`};`
+
   return (
     <section className="section">
       {helmet || ''}
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+            <Headline>
               {title}
-            </h1>
+            </Headline>
             <p>{description}</p>
             <PostContent content={content} />
             {tags && tags.length ? (

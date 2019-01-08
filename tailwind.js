@@ -193,7 +193,12 @@ module.exports = {
   */
 
   fonts: {
+    'title': [
+      'Helvetica Neue',
+      'sans-serif',
+    ],
     'sans': [
+      'Karla',
       'system-ui',
       'BlinkMacSystemFont',
       '-apple-system',
@@ -220,6 +225,7 @@ module.exports = {
       'serif',
     ],
     'mono': [
+      'Inconsolata',
       'Menlo',
       'Monaco',
       'Consolas',

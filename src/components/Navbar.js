@@ -1,7 +1,14 @@
 import React from 'react'
+import styled from '@emotion/styled'
+import { css } from 'emotion';
 import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import logo from '../img/logo.png'
+
+const Container = styled.div`
+  ${tw`font-title text-sm flex items-center pt-4 mx-auto w-full sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl`};`
+const navbarMenu = css(tw`ml-auto`);
+const navItem = css(tw`px-2 no-underline text-black hover:text-green`);
+
 
 const Navbar = class extends React.Component {
 
@@ -32,10 +39,10 @@ const Navbar = class extends React.Component {
    return (
   
   <nav className="navbar is-transparent" role="navigation" aria-label="main-navigation">
-    <div className="container">
+    <Container className="container">
       <div className="navbar-brand">
-        <Link to="/" className="navbar-item" title="Logo">
-          <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
+        <Link to="/" title="Logo">
+          <img src={logo} alt="Concrete Hermit" style={{ width: '75px' }} />
         </Link>
         {/* Hamburger menu */}
         <div className="navbar-burger burger" data-target="navMenu">
@@ -44,35 +51,21 @@ const Navbar = class extends React.Component {
           <span></span>
         </div>
       </div>
-      <div id="navMenu" className="navbar-menu">
-      <div className="navbar-start has-text-centered">
-        <Link className="navbar-item" to="/about">
-          About
+      <div id="navMenu" className={navbarMenu}>
+        <Link className={navItem} to="/about">
+          Studio
         </Link>
-        <Link className="navbar-item" to="/products">
-          Products
+        <Link className={navItem} to="/products">
+          Workshop
         </Link>
-        <Link className="navbar-item" to="/contact">
-          Contact
+        <Link className={navItem} to="/contact">
+          Archive
         </Link>
-        <Link className="navbar-item" to="/contact/examples">
+        <Link className={navItem} to="/contact/examples">
           Form Examples
         </Link>
       </div>
-      <div className="navbar-end has-text-centered">
-        <a
-          className="navbar-item"
-          href="https://github.com/AustinGreen/gatsby-netlify-cms-boilerplate"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="icon">
-            <img src={github} alt="Github" />
-          </span>
-        </a>
-      </div>
-      </div>
-    </div>
+    </Container>
   </nav>
   )}
 }

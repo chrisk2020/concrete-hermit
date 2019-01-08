@@ -1,43 +1,44 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from '@emotion/styled'
+import { css } from 'emotion';
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
-export default class IndexPage extends React.Component {
+const Headline = styled.h1`${tw`font-title font-normal text-3xl my-24`};`
+const Title = styled.h3`${tw`font-title font-normal text-3xl mt-0`};`
+const Content = styled.div`${tw`border-t border-b-0 border-l-0 border-r-0 border-grey border-solid`};`
+const Meta = styled.small`${tw`font-mono mb-6 inline-block`};`
+const titleLink = css(tw`no-underline text-black`)
+
+class IndexPage extends React.Component {
+  
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
 
     return (
       <Layout>
-        <section className="section">
+        <section>
+        <Headline>Beautiful Interactive experiences</Headline>
           <div className="container">
-            <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
-            </div>
             {posts
               .map(({ node: post }) => (
-                <div
-                  className="content"
-                  style={{ border: '1px solid #333', padding: '2em 4em' }}
+                <Content
                   key={post.id}
                 >
-                  <p>
-                    <Link className="has-text-primary" to={post.fields.slug}>
+                  <Meta>{post.frontmatter.date}</Meta>
+                  <Title>
+                    <Link className={titleLink} to={post.fields.slug}>
                       {post.frontmatter.title}
                     </Link>
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
-                  </p>
+                  </Title>
                   <p>
-                    {post.excerpt}
-                    <br />
-                    <br />
-                    <Link className="button is-small" to={post.fields.slug}>
-                      Keep Reading →
+                    <Link className={titleLink} to={post.fields.slug}>
+                      +
                     </Link>
                   </p>
-                </div>
+                </Content>
               ))}
           </div>
         </section>
@@ -53,6 +54,8 @@ IndexPage.propTypes = {
     }),
   }),
 }
+
+export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexQuery {
